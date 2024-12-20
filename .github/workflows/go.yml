@@ -25,9 +25,9 @@ jobs:
         sudo apt install libpcap-dev gcc -y
         export CGO_ENABLED=1
         go get -u -d ./...
-        export CC=gcc
-        export CXX=g++
-        GOOS=windows GOARCH=amd64 go build -trimpath -tags urfave_cli_no_docs -ldflags="-s -w -linkmode external --extldflags '-static'" -o portScan.exe ./cmd/go-portScan.go
+        # export CC=gcc
+        # export CXX=g++
+        GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" ./cmd/go-portScan.go -o portScan.exe
         
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
