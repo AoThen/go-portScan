@@ -21,8 +21,8 @@ jobs:
 
     - name: Build
       run: |
-        apt update
-        apt install libpcap-dev gcc -y
+        sudo apt update
+        sudo apt install libpcap-dev gcc -y
         export CGO_ENABLED=1
         go get -u -d ./...
         export CC=gcc
